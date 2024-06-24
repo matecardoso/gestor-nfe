@@ -1,0 +1,5373 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/all.js"></script>
+
+
+          <script>
+        $(function() {
+            setupLanguages(["php","javascript"]);
+        });
+      </script>
+      </head>
+
+  <body class="">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src="images/logo.png" />
+                    <div class="lang-selector">
+                                  <a href="#" data-language-name="php">php</a>
+                                  <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+                            <div class="search">
+              <input type="text" class="search" id="input-search" placeholder="Search">
+            </div>
+            <ul class="search-results"></ul>
+              <div id="toc">
+      </div>
+                    <ul class="toc-footer">
+                                  <li><a href='http://github.com/mpociot/documentarian'>Documentation Powered by Documentarian</a></li>
+                            </ul>
+            </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+          <!-- START_INFO -->
+<h1>Info</h1>
+<p>Welcome to the generated API reference.
+<a href="http://nfc.gestor/docs/collection.json">Get Postman Collection</a></p>
+<!-- END_INFO -->
+<h1>Cliente</h1>
+<!-- START_5949b4aa2e62a631159e6f626e670156 -->
+<h2>Salvar/Editar</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Salva um novo cliente ou sobrescreve os dados de um cliente já existente</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/cliente/salvar',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'json' =&gt; [
+            'id' =&gt; 1,
+            'tipo_pessoa' =&gt; '1',
+            'nome_completo' =&gt; '1',
+            'cpf_cnpj' =&gt; '1',
+            'consumidor_final' =&gt; '1',
+            'cep' =&gt; '1',
+            'endereco' =&gt; '1',
+            'numero' =&gt; '1',
+            'complemento' =&gt; '1',
+            'bairro' =&gt; '1',
+            'cidade' =&gt; '1',
+            'uf' =&gt; '1',
+            'email' =&gt; '1',
+            'telefone' =&gt; '1',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/cliente/salvar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+let body = {
+    "id": 1,
+    "tipo_pessoa": "1",
+    "nome_completo": "1",
+    "cpf_cnpj": "1",
+    "consumidor_final": "1",
+    "cep": "1",
+    "endereco": "1",
+    "numero": "1",
+    "complemento": "1",
+    "bairro": "1",
+    "cidade": "1",
+    "uf": "1",
+    "email": "1",
+    "telefone": "1"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST cliente/salvar</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>Informar no caso de edição de dados de um cliente</td>
+</tr>
+<tr>
+<td><code>tipo_pessoa</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>nome_completo</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cpf_cnpj</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>consumidor_final</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cep</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>endereco</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>numero</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>complemento</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>bairro</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cidade</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>uf</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>telefone</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_5949b4aa2e62a631159e6f626e670156 -->
+<!-- START_ed72646383beb603ab7060d0b14a422a -->
+<h2>Cliente</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Retorna um objeto contendo dados de um cliente cadastrado</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/cliente/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/cliente/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET cliente/{cliente}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cliente</code></td>
+<td>optional</td>
+<td>Id do cliente</td>
+</tr>
+</tbody>
+</table>
+<!-- END_ed72646383beb603ab7060d0b14a422a -->
+<!-- START_83555366ce3e1201a2e2a6bfc33a0b90 -->
+<h2>Clientes</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Retorna um objeto contendo dados dos clientes cadastrados</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/clientes',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'query' =&gt; [
+            'paginate' =&gt; '0',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/clientes"
+);
+
+let params = {
+    "paginate": "0",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": null,
+            "Nome\/Razão social": "Shanel Shanahan",
+            "CPF\/CNPJ": "10"
+        },
+        {
+            "id": null,
+            "Nome\/Razão social": "Lavada Pfeffer",
+            "CPF\/CNPJ": "1"
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET clientes</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paginate</code></td>
+<td>optional</td>
+<td>Indica se o retorno vem sem páginação, para isso o parâmetro deve receber o valor 0 ou false.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_83555366ce3e1201a2e2a6bfc33a0b90 -->
+<h1>Nota Fiscal</h1>
+<!-- START_e5d1375c0547c3270d6e28699ab33aa1 -->
+<h2>Enviar</h2>
+<p>Envia dados para api de emissão de nota fiscal</p>
+<p>Required dos campos podem variar conforme o valor da finalidade</p>
+<p>Nos campos obrigatórios pela finalidade possuem em sua descrição &#039;*&#039; seguido pelo valor da finalidade onde é obrigatório</p>
+<p>Valores das finalidades:</p>
+<p>1 : NF-e normal</p>
+<p>2 : NF-e complementar
+2.1 : Preço e/ou quantidade
+2.2 : Imposto Complementar</p>
+<p>3 : NF-e de ajuste</p>
+<p>4 : Devolução/Retorno</p>
+<p>5 : Carta de Correção</p>
+<p>6 : Inutilizar Numeração</p>
+<p>Mais infos: <a href="https://webmaniabr.com/docs/rest-api-nfe/">https://webmaniabr.com/docs/rest-api-nfe/</a></p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/nota-fiscal/enviar',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'json' =&gt; [
+            'operacao' =&gt; [
+                'ambiente' =&gt; 'ratione',
+                'operacao' =&gt; 'consequatur',
+                'natureza_operacao' =&gt; 'magni',
+                'modelo' =&gt; 'quos',
+                'finalidade' =&gt; 'eligendi',
+                'nfe_complementar' =&gt; 'omnis',
+                'nfe_referenciada' =&gt; 'aliquid',
+                'codigo_cfop' =&gt; 'assumenda',
+                'valor_icms' =&gt; 'eius',
+                'classe_imposto' =&gt; 'ea',
+                'chave' =&gt; 'reiciendis',
+                'correcao' =&gt; 'non',
+            ],
+            'cliente' =&gt; [
+                'tipo_pessoa' =&gt; 'eos',
+                'nome_completo' =&gt; 'dolor',
+                'cpf_cnpj' =&gt; 'nulla',
+                'razao_social' =&gt; 'minima',
+                'ie' =&gt; 'reprehenderit',
+                'suframa' =&gt; 'soluta',
+                'substituto_tributario' =&gt; 'aut',
+                'consumidor_final' =&gt; 'aliquam',
+                'contribuinte' =&gt; 'velit',
+                'endereco' =&gt; 'vero',
+                'complemento' =&gt; 'nesciunt',
+                'numero' =&gt; 'provident',
+                'bairro' =&gt; 'at',
+                'cidade' =&gt; 'quod',
+                'uf' =&gt; 'error',
+                'cep' =&gt; 'qui',
+                'telefone' =&gt; 'nisi',
+                'email' =&gt; 'voluptas',
+            ],
+            'produtos' =&gt; [
+                [
+                    'item' =&gt; 'tenetur',
+                    'nome' =&gt; 'velit',
+                    'codigo' =&gt; 'culpa',
+                    'ncm' =&gt; 'earum',
+                    'cest' =&gt; 'architecto',
+                    'quantidade' =&gt; 'fuga',
+                    'unidade' =&gt; 'cumque',
+                    'peso' =&gt; 'expedita',
+                    'origem' =&gt; 'vel',
+                    'desconto' =&gt; 'soluta',
+                    'subtotal' =&gt; 'dolores',
+                    'total' =&gt; 'consequatur',
+                    'tributos_federais' =&gt; 'porro',
+                    'tributos_estaduais' =&gt; 'veritatis',
+                    'codigo_cfop' =&gt; 'magnam',
+                    'impostos' =&gt; [
+                        'icms' =&gt; [
+                            'situacao_tributaria' =&gt; 'dolorum',
+                            'tipo_tributacao' =&gt; 'beatae',
+                            'aliquota_credito' =&gt; 'sed',
+                            'aliquota_mva' =&gt; 'est',
+                            'aliquota_importacao' =&gt; 'commodi',
+                            'aliquota_reducao_st' =&gt; 'sapiente',
+                            'bc_st_retido' =&gt; 'hic',
+                            'aliquota_st_retido' =&gt; 'qui',
+                            'valor_st_retido' =&gt; 'consectetur',
+                            'valor_fcp_retido' =&gt; 'repudiandae',
+                            'aliquota_fcp_retido' =&gt; 'dolorem',
+                            'icms_efetivo' =&gt; 'optio',
+                            'industria' =&gt; 'quos',
+                        ],
+                        'ipi' =&gt; [
+                            'situacao_tributaria' =&gt; 'cumque',
+                            'codigo_enquadramento' =&gt; 'occaecati',
+                            'aliquota' =&gt; 'nobis',
+                        ],
+                        'pis' =&gt; [
+                            'situacao_tributaria' =&gt; 'commodi',
+                            'aliquota' =&gt; 'aut',
+                        ],
+                        'cofins' =&gt; [
+                            'situacao_tributaria' =&gt; 'et',
+                            'aliquota' =&gt; 'dolor',
+                        ],
+                    ],
+                ],
+            ],
+            'quantidade' =&gt; [],
+            'impostos' =&gt; [
+                'bc_icms' =&gt; 'ad',
+                'valor_icms' =&gt; 'eos',
+                'bc_icms_st' =&gt; 'animi',
+                'valor_icms_st' =&gt; 'doloremque',
+                'aliquota_mva' =&gt; 'molestias',
+                'bc_ipi' =&gt; 'dolores',
+                'valor_ipi' =&gt; 'aut',
+            ],
+            'transporte' =&gt; [
+                'peso_bruto' =&gt; 'ipsa',
+                'peso_liquido' =&gt; 'dolores',
+                'volume' =&gt; 'dolorum',
+                'especie' =&gt; 'necessitatibus',
+                'marca' =&gt; 'laborum',
+                'numeracao' =&gt; 'maxime',
+                'lacres' =&gt; 'commodi',
+                'uf' =&gt; 'non',
+                'razao_social' =&gt; 'sed',
+                'cnpj' =&gt; 'numquam',
+                'ie' =&gt; 'perferendis',
+                'cep' =&gt; 'modi',
+                'endereco' =&gt; 'optio',
+                'cidade' =&gt; 'ratione',
+                'placa' =&gt; 'officia',
+                'uf_veiculo' =&gt; 'assumenda',
+                'rntc' =&gt; 'tempore',
+                'seguro' =&gt; 'ipsum',
+                'reboque_placa' =&gt; 'quidem',
+                'reboque_uf_veiculo' =&gt; 'quia',
+                'reboque_rntc' =&gt; 'sed',
+                'vagao' =&gt; 'ut',
+                'balsa' =&gt; 'id',
+            ],
+            'pedido' =&gt; [
+                [
+                    'pagamento' =&gt; [
+                        [
+                            'forma_pagamento' =&gt; 'officiis',
+                            'pagamento' =&gt; 'autem',
+                            'valor_pagamento' =&gt; 'reprehenderit',
+                            'bandeira' =&gt; 'perferendis',
+                            'cnpj_credenciadora' =&gt; 'eveniet',
+                            'autorizacao' =&gt; 'voluptatibus',
+                        ],
+                    ],
+                    'fatura' =&gt; [
+                        'numero' =&gt; 'dolor',
+                        'valor' =&gt; 'eaque',
+                        'valor_liquido' =&gt; 'id',
+                        'desconto' =&gt; 'quam',
+                    ],
+                    'parcelas' =&gt; [
+                        [
+                            'vencimento' =&gt; 'et',
+                            'valor' =&gt; 'architecto',
+                        ],
+                    ],
+                ],
+            ],
+            'frete' =&gt; 'suscipit',
+            'desconto' =&gt; 'ut',
+            'despesas_acessorias' =&gt; 'aut',
+            'total' =&gt; 'fugit',
+            'modalidade_frete' =&gt; 'aut',
+            'ID' =&gt; 'ut',
+            'data_entrada_saida' =&gt; 'aut',
+            'presenca' =&gt; 'iste',
+            'informacoes_complementares' =&gt; 'eaque',
+            'informacoes_fisco' =&gt; 'necessitatibus',
+            'volume' =&gt; 'laborum',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/nota-fiscal/enviar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+let body = {
+    "operacao": {
+        "ambiente": "ratione",
+        "operacao": "consequatur",
+        "natureza_operacao": "magni",
+        "modelo": "quos",
+        "finalidade": "eligendi",
+        "nfe_complementar": "omnis",
+        "nfe_referenciada": "aliquid",
+        "codigo_cfop": "assumenda",
+        "valor_icms": "eius",
+        "classe_imposto": "ea",
+        "chave": "reiciendis",
+        "correcao": "non"
+    },
+    "cliente": {
+        "tipo_pessoa": "eos",
+        "nome_completo": "dolor",
+        "cpf_cnpj": "nulla",
+        "razao_social": "minima",
+        "ie": "reprehenderit",
+        "suframa": "soluta",
+        "substituto_tributario": "aut",
+        "consumidor_final": "aliquam",
+        "contribuinte": "velit",
+        "endereco": "vero",
+        "complemento": "nesciunt",
+        "numero": "provident",
+        "bairro": "at",
+        "cidade": "quod",
+        "uf": "error",
+        "cep": "qui",
+        "telefone": "nisi",
+        "email": "voluptas"
+    },
+    "produtos": [
+        {
+            "item": "tenetur",
+            "nome": "velit",
+            "codigo": "culpa",
+            "ncm": "earum",
+            "cest": "architecto",
+            "quantidade": "fuga",
+            "unidade": "cumque",
+            "peso": "expedita",
+            "origem": "vel",
+            "desconto": "soluta",
+            "subtotal": "dolores",
+            "total": "consequatur",
+            "tributos_federais": "porro",
+            "tributos_estaduais": "veritatis",
+            "codigo_cfop": "magnam",
+            "impostos": {
+                "icms": {
+                    "situacao_tributaria": "dolorum",
+                    "tipo_tributacao": "beatae",
+                    "aliquota_credito": "sed",
+                    "aliquota_mva": "est",
+                    "aliquota_importacao": "commodi",
+                    "aliquota_reducao_st": "sapiente",
+                    "bc_st_retido": "hic",
+                    "aliquota_st_retido": "qui",
+                    "valor_st_retido": "consectetur",
+                    "valor_fcp_retido": "repudiandae",
+                    "aliquota_fcp_retido": "dolorem",
+                    "icms_efetivo": "optio",
+                    "industria": "quos"
+                },
+                "ipi": {
+                    "situacao_tributaria": "cumque",
+                    "codigo_enquadramento": "occaecati",
+                    "aliquota": "nobis"
+                },
+                "pis": {
+                    "situacao_tributaria": "commodi",
+                    "aliquota": "aut"
+                },
+                "cofins": {
+                    "situacao_tributaria": "et",
+                    "aliquota": "dolor"
+                }
+            }
+        }
+    ],
+    "quantidade": [],
+    "impostos": {
+        "bc_icms": "ad",
+        "valor_icms": "eos",
+        "bc_icms_st": "animi",
+        "valor_icms_st": "doloremque",
+        "aliquota_mva": "molestias",
+        "bc_ipi": "dolores",
+        "valor_ipi": "aut"
+    },
+    "transporte": {
+        "peso_bruto": "ipsa",
+        "peso_liquido": "dolores",
+        "volume": "dolorum",
+        "especie": "necessitatibus",
+        "marca": "laborum",
+        "numeracao": "maxime",
+        "lacres": "commodi",
+        "uf": "non",
+        "razao_social": "sed",
+        "cnpj": "numquam",
+        "ie": "perferendis",
+        "cep": "modi",
+        "endereco": "optio",
+        "cidade": "ratione",
+        "placa": "officia",
+        "uf_veiculo": "assumenda",
+        "rntc": "tempore",
+        "seguro": "ipsum",
+        "reboque_placa": "quidem",
+        "reboque_uf_veiculo": "quia",
+        "reboque_rntc": "sed",
+        "vagao": "ut",
+        "balsa": "id"
+    },
+    "pedido": [
+        {
+            "pagamento": [
+                {
+                    "forma_pagamento": "officiis",
+                    "pagamento": "autem",
+                    "valor_pagamento": "reprehenderit",
+                    "bandeira": "perferendis",
+                    "cnpj_credenciadora": "eveniet",
+                    "autorizacao": "voluptatibus"
+                }
+            ],
+            "fatura": {
+                "numero": "dolor",
+                "valor": "eaque",
+                "valor_liquido": "id",
+                "desconto": "quam"
+            },
+            "parcelas": [
+                {
+                    "vencimento": "et",
+                    "valor": "architecto"
+                }
+            ]
+        }
+    ],
+    "frete": "suscipit",
+    "desconto": "ut",
+    "despesas_acessorias": "aut",
+    "total": "fugit",
+    "modalidade_frete": "aut",
+    "ID": "ut",
+    "data_entrada_saida": "aut",
+    "presenca": "iste",
+    "informacoes_complementares": "eaque",
+    "informacoes_fisco": "necessitatibus",
+    "volume": "laborum"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST nota-fiscal/enviar</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>operacao</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>operacao.ambiente</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1, 2, 3</td>
+</tr>
+<tr>
+<td><code>operacao.operacao</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1, 2, 3</td>
+</tr>
+<tr>
+<td><code>operacao.natureza_operacao</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1, 2, 3</td>
+</tr>
+<tr>
+<td><code>operacao.modelo</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1</td>
+</tr>
+<tr>
+<td><code>operacao.finalidade</code></td>
+<td>string</td>
+<td>required</td>
+<td>1 : NF-e normal, 2 : NF-e complementar, 3 : NF-e de ajuste, 4 : Devolução/Retorno, 5 : Carta de Correção, 6 : Inutilizar Numeração</td>
+</tr>
+<tr>
+<td><code>operacao.nfe_complementar</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2</td>
+</tr>
+<tr>
+<td><code>operacao.nfe_referenciada</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2 Chave de acesso da NF-e emitida anteriormente, 4: Chave de acesso da NF-e emitida anteriormente</td>
+</tr>
+<tr>
+<td><code>operacao.codigo_cfop</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*3, 4: Para Notas Fiscais emitidas com Impostos via API: Código CFOP de devolução</td>
+</tr>
+<tr>
+<td><code>operacao.valor_icms</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*3</td>
+</tr>
+<tr>
+<td><code>operacao.classe_imposto</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*4 Para Notas Fiscais emitidas com Classe de Imposto: Classe de imposto de devolução.</td>
+</tr>
+<tr>
+<td><code>operacao.chave</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*5 Chave de acesso da NF-e</td>
+</tr>
+<tr>
+<td><code>operacao.correcao</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*5 Justificativa da correção</td>
+</tr>
+<tr>
+<td><code>cliente</code></td>
+<td>object</td>
+<td>optional</td>
+<td>*1, 2, 3</td>
+</tr>
+<tr>
+<td><code>cliente.tipo_pessoa</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.nome_completo</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*Pessoa Física</td>
+</tr>
+<tr>
+<td><code>cliente.cpf_cnpj</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.razao_social</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.ie</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*Caso isento deve trazer o valor 0 (zero)</td>
+</tr>
+<tr>
+<td><code>cliente.suframa</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*Pessoa Jurídica</td>
+</tr>
+<tr>
+<td><code>cliente.substituto_tributario</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.consumidor_final</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.contribuinte</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.endereco</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cliente.complemento</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.numero</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cliente.bairro</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cliente.cidade</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cliente.uf</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cliente.cep</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>cliente.telefone</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cliente.email</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos</code></td>
+<td>array</td>
+<td>optional</td>
+<td>4: Obrigatório para devolução parcial: Número sequencial dos produtos Para a devolução parcial dos produtos é necessário informar quais produtos serão devolvidos, indique por ordem sequencial. Por exemplo, caso os produtos devolvidos sejam o segundo e o terceiro da nota fiscal indique o número 2 e 3 na array.</td>
+</tr>
+<tr>
+<td><code>produtos.*</code></td>
+<td>object</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.item</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.nome</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.codigo</code></td>
+<td>string</td>
+<td>required</td>
+<td>Código do produto (Tag cProd do XML)</td>
+</tr>
+<tr>
+<td><code>produtos.*.ncm</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.cest</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*Identificado automaticamente de acordo com o NCM. Caso seja identificado mais de um código CEST para o mesmo NCM será obrigatório informar o código correto.</td>
+</tr>
+<tr>
+<td><code>produtos.*.quantidade</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1 required, 2.1: Obrigatório para complementar quantidade: Quantidade de itens</td>
+</tr>
+<tr>
+<td><code>produtos.*.unidade</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.peso</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*Caso não seja informado o peso do produto é obrigatório informar o Peso Bruto e Peso Líquido dentro da array transporte.</td>
+</tr>
+<tr>
+<td><code>produtos.*.origem</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.desconto</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.subtotal</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1 required, 2.1: Obrigatório para complementar preço: Preço unitário do produto</td>
+</tr>
+<tr>
+<td><code>produtos.*.total</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1 required, 2.1: Obrigatório para complementar preço: Preço total (quantidade x preço unitário)</td>
+</tr>
+<tr>
+<td><code>produtos.*.tributos_federais</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.tributos_estaduais</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.codigo_cfop</code></td>
+<td>*1</td>
+<td>optional</td>
+<td>Código Fiscal de Operações e Prestações (CFOP), 2 Código Fiscal de Operações e Prestações (CFOP) Informar o código CFOP da operação do ICMS complementar</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos</code></td>
+<td>object</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.situacao_tributaria</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*1 Código da situação tributária, 2.1 Código da situação tributária Informar a situação tributária da operação do ICMS complementar, 2.2 Obrigatório para complementar ICMS e ICMS-ST: Código da situação tributária Informar a situação tributária da operação do ICMS complementar</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.tipo_tributacao</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.aliquota_credito</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.aliquota_mva</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.aliquota_importacao</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.aliquota_reducao_st</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.bc_st_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.aliquota_st_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.valor_st_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.valor_fcp_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.aliquota_fcp_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.icms_efetivo</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.icms.industria</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.ipi</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.ipi.situacao_tributaria</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.ipi.codigo_enquadramento</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.ipi.aliquota</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.pis</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.pis.situacao_tributaria</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.pis.aliquota</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.cofins</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.cofins.situacao_tributaria</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>produtos.*.impostos.cofins.aliquota</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>quantidade</code></td>
+<td>array</td>
+<td>optional</td>
+<td>4: Opcional para devolução parcial: Número da quantidade de unidades devolvidas na devolução parcial. Indique na ordem correspondente da array produtos.</td>
+</tr>
+<tr>
+<td><code>impostos</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar ICMS: Base de cálculo do complemento do ICMS</td>
+</tr>
+<tr>
+<td><code>impostos.bc_icms</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar ICMS: Base de cálculo do complemento do ICMS</td>
+</tr>
+<tr>
+<td><code>impostos.valor_icms</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar ICMS: Valor do complemento do ICMS</td>
+</tr>
+<tr>
+<td><code>impostos.bc_icms_st</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar ICMS-ST: Base de cálculo do complemento do ICMS-ST</td>
+</tr>
+<tr>
+<td><code>impostos.valor_icms_st</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar ICMS-ST: Valor do complemento do ICMS-ST</td>
+</tr>
+<tr>
+<td><code>impostos.aliquota_mva</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar ICMS-ST: Percentual da Margem de Valor Agregado Original (MVA/IVA)</td>
+</tr>
+<tr>
+<td><code>impostos.bc_ipi</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar IPI: Base de cálculo do complemento do IPI</td>
+</tr>
+<tr>
+<td><code>impostos.valor_ipi</code></td>
+<td>string</td>
+<td>optional</td>
+<td>*2.2 Obrigatório para complementar IPI: Valor do complemento do IPI</td>
+</tr>
+<tr>
+<td><code>transporte</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>transporte.peso_bruto</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.peso_liquido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.volume</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.especie</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.marca</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.numeracao</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.lacres</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.uf</code></td>
+<td>string</td>
+<td>optional</td>
+<td>A UF deve ser informada se informado uma IE. Informar &quot;EX&quot; para Exterior.</td>
+</tr>
+<tr>
+<td><code>transporte.razao_social</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.cnpj</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.ie</code></td>
+<td>string</td>
+<td>optional</td>
+<td>0 - Isento ou Nº da Inscrição Estadual</td>
+</tr>
+<tr>
+<td><code>transporte.cep</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.endereco</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.cidade</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.placa</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Informar em um dos seguintes formatos: XXX9999, XXX999, XX9999 ou XXXX999.</td>
+</tr>
+<tr>
+<td><code>transporte.uf_veiculo</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.rntc</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Registro Nacional de Transportador de Carga (ANTT)</td>
+</tr>
+<tr>
+<td><code>transporte.seguro</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.reboque_placa</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.reboque_uf_veiculo</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.reboque_rntc</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.vagao</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>transporte.balsa</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>pedido</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.pagamento</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.pagamento.*.forma_pagamento</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>pedido.*.pagamento.*.pagamento</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>pedido.*.pagamento.*.valor_pagamento</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>pedido.*.pagamento.*.bandeira</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>pedido.*.pagamento.*.cnpj_credenciadora</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>pedido.*.pagamento.*.autorizacao</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>pedido.*.fatura</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.fatura.numero</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.fatura.valor</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.fatura.valor_liquido</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.fatura.desconto</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.parcelas</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.parcelas.*.vencimento</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>pedido.*.parcelas.*.valor</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>frete</code></td>
+<td>string</td>
+<td>required</td>
+<td>Para nota fiscal de importação não inserir o valor do frete. Podendo ser informado o valor somente no campo Informações ao Fisco.</td>
+</tr>
+<tr>
+<td><code>desconto</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>despesas_acessorias</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>modalidade_frete</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>ID</code></td>
+<td>string</td>
+<td>optional</td>
+<td>Número do pedido de compra por produto. (Tag xPed do XML)</td>
+</tr>
+<tr>
+<td><code>data_entrada_saida</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>presenca</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>informacoes_complementares</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>informacoes_fisco</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>volume</code></td>
+<td>string</td>
+<td>optional</td>
+<td>4: Quantidade de volumes transportados</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e5d1375c0547c3270d6e28699ab33aa1 -->
+<!-- START_b9ba3496ef8f970454637409da2f10e8 -->
+<h2>Cancelar</h2>
+<p>Envia dados para api de cancelamento de nota fiscal</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/nota-fiscal/cancelar',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'json' =&gt; [
+            'chave' =&gt; 'quam',
+            'motivo' =&gt; 'provident',
+            'operacao' =&gt; [
+                'ambiente' =&gt; 'aspernatur',
+                'modelo' =&gt; 'tempora',
+                'finalidade' =&gt; 'odio',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/nota-fiscal/cancelar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+let body = {
+    "chave": "quam",
+    "motivo": "provident",
+    "operacao": {
+        "ambiente": "aspernatur",
+        "modelo": "tempora",
+        "finalidade": "odio"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST nota-fiscal/cancelar</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chave</code></td>
+<td>string</td>
+<td>required</td>
+<td>Chave de acesso da NF-e</td>
+</tr>
+<tr>
+<td><code>motivo</code></td>
+<td>string</td>
+<td>required</td>
+<td>Justificativa do cancelamento</td>
+</tr>
+<tr>
+<td><code>operacao</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>operacao.ambiente</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>operacao.modelo</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>operacao.finalidade</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_b9ba3496ef8f970454637409da2f10e8 -->
+<!-- START_3fcdc732255fc49b642bc970744628e3 -->
+<h2>Carta de correção (CC-e)</h2>
+<p>A Carta de Correção Eletrônica (CC-e) é um evento legal e tem por objetivo corrigir algumas informações da NF-e que já foi emitida.</p>
+<p>O que NÃO é permitido corrigir com a carta de correção?</p>
+<ul>
+<li>
+<p>Valores como base de cálculo, alíquota, diferença de preço e quantidade.</p>
+</li>
+<li>
+<p>Dados cadastrais que implique mudança do remetente ou do destinatário.</p>
+</li>
+<li>
+<p>A data de emissão ou de saída.</p>
+</li>
+<li>
+<p>Série e número da nota fiscal.</p>
+</li>
+</ul>
+<p>A sua alteração não se enquadra na carta de correção?</p>
+<p>Emita uma nota fiscal de devolução para anular os efeitos fiscais da NF-e emitida anteriormente, logo após emita uma nova nota fiscal normalmente.</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/nota-fiscal/carta-correcao',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'json' =&gt; [
+            'carta_correcao' =&gt; [
+                'chave' =&gt; 'sit',
+                'correcao' =&gt; 'et',
+            ],
+            'operacao' =&gt; [
+                'ambiente' =&gt; 'consequatur',
+                'modelo' =&gt; 'pariatur',
+                'finalidade' =&gt; 'ducimus',
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/nota-fiscal/carta-correcao"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+let body = {
+    "carta_correcao": {
+        "chave": "sit",
+        "correcao": "et"
+    },
+    "operacao": {
+        "ambiente": "consequatur",
+        "modelo": "pariatur",
+        "finalidade": "ducimus"
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST nota-fiscal/carta-correcao</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>carta_correcao</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>carta_correcao.chave</code></td>
+<td>string</td>
+<td>required</td>
+<td>Chave de acesso da NF-e</td>
+</tr>
+<tr>
+<td><code>carta_correcao.correcao</code></td>
+<td>string</td>
+<td>required</td>
+<td>Justificativa da correção</td>
+</tr>
+<tr>
+<td><code>operacao</code></td>
+<td>array</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>operacao.ambiente</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>operacao.modelo</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>operacao.finalidade</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_3fcdc732255fc49b642bc970744628e3 -->
+<!-- START_756b04ca9126c8996dffd379df5c57af -->
+<h2>Inutilizar numeração</h2>
+<p>Inutilizar uma sequência de numeração de Nota Fiscal</p>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/nota-fiscal/inutilizar-numeracao',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'json' =&gt; [
+            'sequencia' =&gt; 'repellendus',
+            'motivo' =&gt; 'eaque',
+            'ambiente' =&gt; 'et',
+            'serie' =&gt; 'debitis',
+            'modelo' =&gt; 'saepe',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/nota-fiscal/inutilizar-numeracao"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+let body = {
+    "sequencia": "repellendus",
+    "motivo": "eaque",
+    "ambiente": "et",
+    "serie": "debitis",
+    "modelo": "saepe"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST nota-fiscal/inutilizar-numeracao</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sequencia</code></td>
+<td>string</td>
+<td>required</td>
+<td>Sequência da numeração</td>
+</tr>
+<tr>
+<td><code>motivo</code></td>
+<td>string</td>
+<td>required</td>
+<td>Justificativa da inutilização</td>
+</tr>
+<tr>
+<td><code>ambiente</code></td>
+<td>string</td>
+<td>required</td>
+<td>Identificação do Ambiente do Sefaz</td>
+</tr>
+<tr>
+<td><code>serie</code></td>
+<td>string</td>
+<td>required</td>
+<td>Série da numeração</td>
+</tr>
+<tr>
+<td><code>modelo</code></td>
+<td>string</td>
+<td>required</td>
+<td>Modelo da numeração</td>
+</tr>
+</tbody>
+</table>
+<!-- END_756b04ca9126c8996dffd379df5c57af -->
+<h1>Produto</h1>
+<!-- START_1e63d2d3072e67a0d19a1fb773c5ae60 -->
+<h2>Salvar/Editar</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Salva um novo produto ou sobrescreve os dados de um produto já existente</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/produto/salvar',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'json' =&gt; [
+            'id' =&gt; 1,
+            'nome' =&gt; 'sint',
+            'codigo' =&gt; 'ut',
+            'ean' =&gt; 'voluptates',
+            'ncm' =&gt; 'nostrum',
+            'cest' =&gt; 'rerum',
+            'quantidade' =&gt; 'architecto',
+            'unidade' =&gt; 'culpa',
+            'origem' =&gt; 'ex',
+            'subtotal' =&gt; 'veniam',
+            'total' =&gt; 'exercitationem',
+            'impostos' =&gt; [
+                'icms' =&gt; [
+                    'codigo_cfop' =&gt; 'tempore',
+                    'situacao_tributaria' =&gt; 'maiores',
+                    'tipo_tributacao' =&gt; 'doloribus',
+                    'aliquota_credito' =&gt; 'perspiciatis',
+                    'aliquota_mva' =&gt; 'neque',
+                    'aliquota_importacao' =&gt; 'quia',
+                    'aliquota_reducao_st' =&gt; 'earum',
+                    'bc_st_retido' =&gt; 'aut',
+                    'aliquota_st_retido' =&gt; 'et',
+                    'valor_st_retido' =&gt; 'ipsam',
+                    'valor_fcp_retido' =&gt; 'alias',
+                    'aliquota_fcp_retido' =&gt; 'similique',
+                    'icms_efetivo' =&gt; 'ea',
+                    'industria' =&gt; 'vitae',
+                ],
+                'ipi' =&gt; [
+                    'situacao_tributaria' =&gt; 'dolorum',
+                    'codigo_enquadramento' =&gt; 'voluptatem',
+                    'aliquota' =&gt; 'adipisci',
+                ],
+                'pis' =&gt; [
+                    'situacao_tributaria' =&gt; 'sequi',
+                    'aliquota' =&gt; 'perspiciatis',
+                ],
+                'cofins' =&gt; [
+                    'situacao_tributaria' =&gt; 'distinctio',
+                    'aliquota' =&gt; 'sed',
+                ],
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/produto/salvar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+let body = {
+    "id": 1,
+    "nome": "sint",
+    "codigo": "ut",
+    "ean": "voluptates",
+    "ncm": "nostrum",
+    "cest": "rerum",
+    "quantidade": "architecto",
+    "unidade": "culpa",
+    "origem": "ex",
+    "subtotal": "veniam",
+    "total": "exercitationem",
+    "impostos": {
+        "icms": {
+            "codigo_cfop": "tempore",
+            "situacao_tributaria": "maiores",
+            "tipo_tributacao": "doloribus",
+            "aliquota_credito": "perspiciatis",
+            "aliquota_mva": "neque",
+            "aliquota_importacao": "quia",
+            "aliquota_reducao_st": "earum",
+            "bc_st_retido": "aut",
+            "aliquota_st_retido": "et",
+            "valor_st_retido": "ipsam",
+            "valor_fcp_retido": "alias",
+            "aliquota_fcp_retido": "similique",
+            "icms_efetivo": "ea",
+            "industria": "vitae"
+        },
+        "ipi": {
+            "situacao_tributaria": "dolorum",
+            "codigo_enquadramento": "voluptatem",
+            "aliquota": "adipisci"
+        },
+        "pis": {
+            "situacao_tributaria": "sequi",
+            "aliquota": "perspiciatis"
+        },
+        "cofins": {
+            "situacao_tributaria": "distinctio",
+            "aliquota": "sed"
+        }
+    }
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST produto/salvar</code></p>
+<h4>Body Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>optional</td>
+<td>Informar no caso de edição de dados de um produto</td>
+</tr>
+<tr>
+<td><code>nome</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>codigo</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>ean</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>ncm</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>cest</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>quantidade</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>unidade</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>origem</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>subtotal</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos</code></td>
+<td>object</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.icms.codigo_cfop</code></td>
+<td>string</td>
+<td>required</td>
+<td>Código Fiscal de Operações e Prestações (CFOP)</td>
+</tr>
+<tr>
+<td><code>impostos.icms.situacao_tributaria</code></td>
+<td>string</td>
+<td>required</td>
+<td>Código da situação tributária</td>
+</tr>
+<tr>
+<td><code>impostos.icms.tipo_tributacao</code></td>
+<td>required</td>
+<td>optional</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>impostos.icms.aliquota_credito</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.aliquota_mva</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.aliquota_importacao</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.aliquota_reducao_st</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.bc_st_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.aliquota_st_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.valor_st_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.valor_fcp_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.aliquota_fcp_retido</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.icms_efetivo</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.icms.industria</code></td>
+<td>string</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>impostos.ipi</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.ipi.situacao_tributaria</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.ipi.codigo_enquadramento</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.ipi.aliquota</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.pis</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.pis.situacao_tributaria</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.pis.aliquota</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.cofins</code></td>
+<td>object</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.cofins.situacao_tributaria</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>impostos.cofins.aliquota</code></td>
+<td>string</td>
+<td>required</td>
+</tr>
+</tbody>
+</table>
+<!-- END_1e63d2d3072e67a0d19a1fb773c5ae60 -->
+<!-- START_e6b7463e9839deb52108af08376eee01 -->
+<h2>Produto</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Retorna um objeto contendo dados de um produto cadastrado</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/produto/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/produto/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": null,
+            "item": null,
+            "nome": "Alice watched the.",
+            "codigo": null,
+            "ncm": "12345678",
+            "quantidade": null,
+            "unidade": null,
+            "peso": null,
+            "origem": 1,
+            "desconto": null,
+            "subtotal": 82,
+            "total": null,
+            "classe_imposto": null,
+            "veiculo_usado": null,
+            "ind_escala": null,
+            "cnpj_fabricante": null,
+            "beneficio_fiscal": null,
+            "gtin": null,
+            "gtin_tributavel": null,
+            "cest": null,
+            "nve": null,
+            "nrecopi": null,
+            "informacoes_adicionais": null,
+            "ativo_permanente": null,
+            "tributos_federais": null,
+            "impostos": {
+                "icms": {
+                    "codigo_cfop": "6910",
+                    "tipo_tributacao": "normal",
+                    "situacao_tributaria": "40",
+                    "aliquota_credito": null,
+                    "aliquota_reducao": null,
+                    "aliquota_mva": null,
+                    "aliquota_diferimento": null,
+                    "aliquota_importacao": null,
+                    "aliquota_reducao_st": null,
+                    "motivo_desoneracao": null,
+                    "bc_st_retido": null,
+                    "aliquota_st_retido": null,
+                    "valor_st_retido": null,
+                    "valor_fcp_retido": null,
+                    "aliquota_fcp_retido": null,
+                    "industria": null
+                },
+                "ipi": {
+                    "situacao_tributaria": "99",
+                    "codigo_enquadramento": "999",
+                    "aliquota": 0,
+                    "codigo_selo": null,
+                    "qtd_selo": null
+                },
+                "pis": {
+                    "situacao_tributaria": "99",
+                    "aliquota": 0
+                },
+                "cofins": {
+                    "situacao_tributaria": "99",
+                    "aliquota": 0
+                },
+                "estimativa": {
+                    "tributos_federais": null,
+                    "tributos_estaduais": null
+                }
+            }
+        },
+        {
+            "id": null,
+            "item": null,
+            "nome": "Mock Turtle.",
+            "codigo": null,
+            "ncm": "12345678",
+            "quantidade": null,
+            "unidade": null,
+            "peso": null,
+            "origem": 1,
+            "desconto": null,
+            "subtotal": 66,
+            "total": null,
+            "classe_imposto": null,
+            "veiculo_usado": null,
+            "ind_escala": null,
+            "cnpj_fabricante": null,
+            "beneficio_fiscal": null,
+            "gtin": null,
+            "gtin_tributavel": null,
+            "cest": null,
+            "nve": null,
+            "nrecopi": null,
+            "informacoes_adicionais": null,
+            "ativo_permanente": null,
+            "tributos_federais": null,
+            "impostos": {
+                "icms": {
+                    "codigo_cfop": "6910",
+                    "tipo_tributacao": "normal",
+                    "situacao_tributaria": "40",
+                    "aliquota_credito": null,
+                    "aliquota_reducao": null,
+                    "aliquota_mva": null,
+                    "aliquota_diferimento": null,
+                    "aliquota_importacao": null,
+                    "aliquota_reducao_st": null,
+                    "motivo_desoneracao": null,
+                    "bc_st_retido": null,
+                    "aliquota_st_retido": null,
+                    "valor_st_retido": null,
+                    "valor_fcp_retido": null,
+                    "aliquota_fcp_retido": null,
+                    "industria": null
+                },
+                "ipi": {
+                    "situacao_tributaria": "99",
+                    "codigo_enquadramento": "999",
+                    "aliquota": 0,
+                    "codigo_selo": null,
+                    "qtd_selo": null
+                },
+                "pis": {
+                    "situacao_tributaria": "99",
+                    "aliquota": 0
+                },
+                "cofins": {
+                    "situacao_tributaria": "99",
+                    "aliquota": 0
+                },
+                "estimativa": {
+                    "tributos_federais": null,
+                    "tributos_estaduais": null
+                }
+            }
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET produto/{produto}</code></p>
+<h4>URL Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>produto</code></td>
+<td>optional</td>
+<td>Id do produto</td>
+</tr>
+</tbody>
+</table>
+<!-- END_e6b7463e9839deb52108af08376eee01 -->
+<!-- START_4e657a9114213d599d16d21f99a8a84f -->
+<h2>Produtos</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+Retorna um objeto contendo dados dos produtos cadastrados</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/produtos',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+        'query' =&gt; [
+            'paginate' =&gt; '0',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/produtos"
+);
+
+let params = {
+    "paginate": "0",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": null,
+            "Nome": "SHE, of course,'.",
+            "Código": null,
+            "NCM": "12345678",
+            "Valor": 36
+        },
+        {
+            "id": null,
+            "Nome": "And he added.",
+            "Código": null,
+            "NCM": "12345678",
+            "Valor": 57
+        }
+    ]
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET produtos</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>paginate</code></td>
+<td>optional</td>
+<td>Indica se o retorno vem sem páginação, para isso o parâmetro deve receber o valor 0 ou false.</td>
+</tr>
+</tbody>
+</table>
+<!-- END_4e657a9114213d599d16d21f99a8a84f -->
+<h1>general</h1>
+<!-- START_c6c5c00d6ac7f771f157dff4a2889b1a -->
+<h2>_debugbar/open</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/_debugbar/open',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/_debugbar/open"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": ""
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET _debugbar/open</code></p>
+<!-- END_c6c5c00d6ac7f771f157dff4a2889b1a -->
+<!-- START_7b167949c615f4a7e7b673f8d5fdaf59 -->
+<h2>Return Clockwork output</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/_debugbar/clockwork/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/_debugbar/clockwork/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": ""
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET _debugbar/clockwork/{id}</code></p>
+<!-- END_7b167949c615f4a7e7b673f8d5fdaf59 -->
+<!-- START_01a252c50bd17b20340dbc5a91cea4b7 -->
+<h2>_debugbar/telescope/{id}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/_debugbar/telescope/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/_debugbar/telescope/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": ""
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET _debugbar/telescope/{id}</code></p>
+<!-- END_01a252c50bd17b20340dbc5a91cea4b7 -->
+<!-- START_5f8a640000f5db43332951f0d77378c4 -->
+<h2>Return the stylesheets for the Debugbar</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/_debugbar/assets/stylesheets',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/_debugbar/assets/stylesheets"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": ""
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET _debugbar/assets/stylesheets</code></p>
+<!-- END_5f8a640000f5db43332951f0d77378c4 -->
+<!-- START_db7a887cf930ce3c638a8708fd1a75ee -->
+<h2>Return the javascript for the Debugbar</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/_debugbar/assets/javascript',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/_debugbar/assets/javascript"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": ""
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET _debugbar/assets/javascript</code></p>
+<!-- END_db7a887cf930ce3c638a8708fd1a75ee -->
+<!-- START_0973671c4f56e7409202dc85c868d442 -->
+<h2>Forget a cache key</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://nfc.gestor/_debugbar/cache/1/',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/_debugbar/cache/1/"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE _debugbar/cache/{key}/{tags?}</code></p>
+<!-- END_0973671c4f56e7409202dc85c868d442 -->
+<!-- START_f7b7ea397f8939c8bb93e6cab64603ce -->
+<h2>Display Swagger API page.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/api/documentation',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/api/documentation"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/documentation</code></p>
+<!-- END_f7b7ea397f8939c8bb93e6cab64603ce -->
+<!-- START_1ead214f30a5e235e7140eb2aaa29eee -->
+<h2>Dump api-docs content endpoint. Supports dumping a json, or yaml file.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/docs/',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/docs/"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "swagger": "2.0",
+    "info": {
+        "title": "Gestor API",
+        "version": "1.0.0"
+    },
+    "basePath": "\/",
+    "paths": {
+        "\/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Lista de de clientes cadastrados",
+                "parameters": [
+                    {
+                        "name": "paginate",
+                        "in": "query",
+                        "description": "Indica se o retorno vem sem páginação, para isso o parâmetro deve receber o valor 0 ou false",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/cliente\/{cliente}": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Dados do cliente",
+                "parameters": [
+                    {
+                        "name": "cliente",
+                        "in": "path",
+                        "description": "Id do cliente",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/cliente\/salvar": {
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Salvar dados do cliente",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Dados do cliente",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "tipo_pessoa",
+                                "nome_completo",
+                                "cpf_cnpj",
+                                "cep",
+                                "endereco",
+                                "numero",
+                                "bairro",
+                                "cidade",
+                                "uf",
+                                "email",
+                                "telefone"
+                            ],
+                            "properties": {
+                                "tipo_pessoa": {
+                                    "type": "string"
+                                },
+                                "nome_completo": {
+                                    "type": "string"
+                                },
+                                "cpf_cnpj": {
+                                    "type": "string"
+                                },
+                                "consumidor_final": {
+                                    "type": "string"
+                                },
+                                "cep": {
+                                    "type": "string"
+                                },
+                                "endereco": {
+                                    "type": "string"
+                                },
+                                "numero": {
+                                    "type": "string"
+                                },
+                                "complemento": {
+                                    "type": "string"
+                                },
+                                "bairro": {
+                                    "type": "string"
+                                },
+                                "cidade": {
+                                    "type": "string"
+                                },
+                                "uf": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "telefone": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "\/nota-fiscal\/enviar": {
+            "post": {
+                "tags": [
+                    "Nota-fiscal"
+                ],
+                "summary": "Enviar nota fiscal para api",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Dados para envio da nota fiscal",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "nome",
+                                "codigo"
+                            ],
+                            "properties": {
+                                "operacao": {
+                                    "type": "string"
+                                },
+                                "natureza_operacao": {
+                                    "type": "string"
+                                },
+                                "modelo": {
+                                    "type": "string"
+                                },
+                                "finalidade": {
+                                    "type": "string"
+                                },
+                                "ambiente": {
+                                    "type": "string"
+                                },
+                                "cliente": {
+                                    "properties": {
+                                        "cpf": {
+                                            "type": "string"
+                                        },
+                                        "nome_completo": {
+                                            "type": "string"
+                                        },
+                                        "cnpj": {
+                                            "type": "string"
+                                        },
+                                        "razao_social": {
+                                            "type": "string"
+                                        },
+                                        "ie": {
+                                            "type": "string"
+                                        },
+                                        "suframa": {
+                                            "type": "string"
+                                        },
+                                        "substituto_tributario": {
+                                            "type": "string"
+                                        },
+                                        "consumidor_final": {
+                                            "type": "string"
+                                        },
+                                        "contribuinte": {
+                                            "type": "string"
+                                        },
+                                        "endereco": {
+                                            "type": "string"
+                                        },
+                                        "complemento": {
+                                            "type": "string"
+                                        },
+                                        "numero": {
+                                            "type": "string"
+                                        },
+                                        "bairro": {
+                                            "type": "string"
+                                        },
+                                        "cidade": {
+                                            "type": "string"
+                                        },
+                                        "uf": {
+                                            "type": "string"
+                                        },
+                                        "cep": {
+                                            "type": "string"
+                                        },
+                                        "telefone": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "produtos": {
+                                            "type": "string"
+                                        },
+                                        "pedido": {
+                                            "type": "string"
+                                        },
+                                        "transporte": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "produtos": {
+                                    "description": "Um array contendo multiplos objetos de cada produto",
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "item": {
+                                                "type": "string"
+                                            },
+                                            "nome": {
+                                                "type": "string"
+                                            },
+                                            "codigo": {
+                                                "type": "string"
+                                            },
+                                            "ncm": {
+                                                "type": "string"
+                                            },
+                                            "cest": {
+                                                "type": "string"
+                                            },
+                                            "quantidade": {
+                                                "type": "string"
+                                            },
+                                            "unidade": {
+                                                "type": "string"
+                                            },
+                                            "peso": {
+                                                "type": "string"
+                                            },
+                                            "origem": {
+                                                "type": "string"
+                                            },
+                                            "desconto": {
+                                                "type": "string"
+                                            },
+                                            "subtotal": {
+                                                "type": "string"
+                                            },
+                                            "total": {
+                                                "type": "string"
+                                            },
+                                            "tributos_federais": {
+                                                "type": "string"
+                                            },
+                                            "tributos_estaduais": {
+                                                "type": "string"
+                                            },
+                                            "impostos": {
+                                                "properties": {
+                                                    "icms": {
+                                                        "properties": {
+                                                            "codigo_cfop": {
+                                                                "type": "string"
+                                                            },
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_reducao": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_credito": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_mva": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_diferimento": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_importacao": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_reducao_st": {
+                                                                "type": "string"
+                                                            },
+                                                            "motivo_desoneracao": {
+                                                                "type": "string"
+                                                            },
+                                                            "bc_st_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_st_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "valor_st_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "valor_fcp_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_fcp_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "icms_efetivo": {
+                                                                "type": "string"
+                                                            },
+                                                            "industria": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ipi": {
+                                                        "properties": {
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "codigo_enquadramento": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota": {
+                                                                "type": "string"
+                                                            },
+                                                            "codigo_selo": {
+                                                                "type": "string"
+                                                            },
+                                                            "qtd_selo": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "pis": {
+                                                        "properties": {
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "cofins": {
+                                                        "properties": {
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "pedido": {
+                                    "properties": {
+                                        "presenca": {
+                                            "type": "string"
+                                        },
+                                        "modalidade_frete": {
+                                            "type": "string"
+                                        },
+                                        "frete": {
+                                            "type": "string"
+                                        },
+                                        "desconto": {
+                                            "type": "string"
+                                        },
+                                        "total": {
+                                            "type": "string"
+                                        },
+                                        "despesas_acessorias": {
+                                            "type": "string"
+                                        },
+                                        "despesas_aduaneiras": {
+                                            "type": "string"
+                                        },
+                                        "informacoes_fisco": {
+                                            "type": "string"
+                                        },
+                                        "informacoes_complementares": {
+                                            "type": "string"
+                                        },
+                                        "observacoes_contribuinte": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "transporte": {
+                                    "properties": {
+                                        "volume": {
+                                            "type": "string"
+                                        },
+                                        "especie": {
+                                            "type": "string"
+                                        },
+                                        "peso_bruto": {
+                                            "type": "string"
+                                        },
+                                        "peso_liquido": {
+                                            "type": "string"
+                                        },
+                                        "marca": {
+                                            "type": "string"
+                                        },
+                                        "numeracao": {
+                                            "type": "string"
+                                        },
+                                        "lacres": {
+                                            "type": "string"
+                                        },
+                                        "cnpj": {
+                                            "type": "string"
+                                        },
+                                        "razao_social": {
+                                            "type": "string"
+                                        },
+                                        "ie": {
+                                            "type": "string"
+                                        },
+                                        "cpf": {
+                                            "type": "string"
+                                        },
+                                        "nome_completo": {
+                                            "type": "string"
+                                        },
+                                        "endereco": {
+                                            "type": "string"
+                                        },
+                                        "uf": {
+                                            "type": "string"
+                                        },
+                                        "cidade": {
+                                            "type": "string"
+                                        },
+                                        "cep": {
+                                            "type": "string"
+                                        },
+                                        "placa": {
+                                            "type": "string"
+                                        },
+                                        "uf_veiculo": {
+                                            "type": "string"
+                                        },
+                                        "rntc": {
+                                            "type": "string"
+                                        },
+                                        "seguro": {
+                                            "type": "string"
+                                        },
+                                        "reboque_placa": {
+                                            "type": "string"
+                                        },
+                                        "reboque_uf_veiculo": {
+                                            "type": "string"
+                                        },
+                                        "reboque_rntc": {
+                                            "type": "string"
+                                        },
+                                        "vagao": {
+                                            "type": "string"
+                                        },
+                                        "balsa": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "\/produtos": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Lista de de produtos cadastrados",
+                "parameters": [
+                    {
+                        "name": "paginate",
+                        "in": "query",
+                        "description": "Indica se o retorno vem sem páginação, para isso o parâmetro deve receber o valor 0 ou false",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "\/produto\/{produto}": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Dados do produto",
+                "parameters": [
+                    {
+                        "name": "produto",
+                        "in": "path",
+                        "description": "Id do produto",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "\/produto\/salvar": {
+            "post": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Salvar dados do produto",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Dados do produto",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "nome",
+                                "codigo"
+                            ],
+                            "properties": {
+                                "nome": {
+                                    "type": "string"
+                                },
+                                "codigo": {
+                                    "type": "string"
+                                },
+                                "ean": {
+                                    "type": "string"
+                                },
+                                "ncm": {
+                                    "type": "string"
+                                },
+                                "cest": {
+                                    "type": "string"
+                                },
+                                "quantidade": {
+                                    "type": "string"
+                                },
+                                "unidade": {
+                                    "type": "string"
+                                },
+                                "origem": {
+                                    "type": "string"
+                                },
+                                "subtotal": {
+                                    "type": "string"
+                                },
+                                "total": {
+                                    "type": "string"
+                                },
+                                "impostos": {
+                                    "required": [
+                                        "icms",
+                                        "ipi",
+                                        "pis",
+                                        "cofins"
+                                    ],
+                                    "properties": {
+                                        "icms": {
+                                            "required": [
+                                                "codigo_cfop",
+                                                "situacao_tributaria",
+                                                "tipo_tributacao"
+                                            ],
+                                            "properties": {
+                                                "codigo_cfop": {
+                                                    "description": "Código Fiscal de Operações e Prestações (CFOP)",
+                                                    "type": "string"
+                                                },
+                                                "situacao_tributaria": {
+                                                    "description": "Código da situação tributária",
+                                                    "type": "string"
+                                                },
+                                                "tipo_tributacao": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_credito": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_mva": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_importacao": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_reducao_st": {
+                                                    "type": "string"
+                                                },
+                                                "bc_st_retido": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_st_retido": {
+                                                    "type": "string"
+                                                },
+                                                "valor_st_retido": {
+                                                    "type": "string"
+                                                },
+                                                "valor_fcp_retido": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_fcp_retido": {
+                                                    "type": "string"
+                                                },
+                                                "icms_efetivo": {
+                                                    "type": "string"
+                                                },
+                                                "industria": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ipi": {
+                                            "required": [
+                                                "situacao_tributaria",
+                                                "codigo_enquadramento",
+                                                "aliquota"
+                                            ],
+                                            "properties": {
+                                                "situacao_tributaria": {
+                                                    "type": "string"
+                                                },
+                                                "codigo_enquadramento": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "pis": {
+                                            "required": [
+                                                "situacao_tributaria",
+                                                "aliquota"
+                                            ],
+                                            "properties": {
+                                                "situacao_tributaria": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "cofins": {
+                                            "required": [
+                                                "situacao_tributaria",
+                                                "aliquota"
+                                            ],
+                                            "properties": {
+                                                "situacao_tributaria": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET docs/{jsonFile?}</code></p>
+<p><code>POST docs/{jsonFile?}</code></p>
+<p><code>PUT docs/{jsonFile?}</code></p>
+<p><code>PATCH docs/{jsonFile?}</code></p>
+<p><code>DELETE docs/{jsonFile?}</code></p>
+<p><code>OPTIONS docs/{jsonFile?}</code></p>
+<!-- END_1ead214f30a5e235e7140eb2aaa29eee -->
+<!-- START_1a23c1337818a4de9e417863aebaca33 -->
+<h2>docs/asset/{asset}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/docs/asset/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/docs/asset/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (404):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "(1) - this L5 Swagger asset is not allowed"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET docs/asset/{asset}</code></p>
+<!-- END_1a23c1337818a4de9e417863aebaca33 -->
+<!-- START_a2c4ea37605c6d2e3c93b7269030af0a -->
+<h2>Display Oauth2 callback pages.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/api/oauth2-callback',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/api/oauth2-callback"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/oauth2-callback</code></p>
+<!-- END_a2c4ea37605c6d2e3c93b7269030af0a -->
+<!-- START_0c068b4037fb2e47e71bd44bd36e3e2a -->
+<h2>Authorize a client to access the user&#039;s account.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/oauth/authorize',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/authorize</code></p>
+<!-- END_0c068b4037fb2e47e71bd44bd36e3e2a -->
+<!-- START_e48cc6a0b45dd21b7076ab2c03908687 -->
+<h2>Approve the authorization request.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/oauth/authorize',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/authorize</code></p>
+<!-- END_e48cc6a0b45dd21b7076ab2c03908687 -->
+<!-- START_de5d7581ef1275fce2a229b6b6eaad9c -->
+<h2>Deny the authorization request.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://nfc.gestor/oauth/authorize',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/authorize"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/authorize</code></p>
+<!-- END_de5d7581ef1275fce2a229b6b6eaad9c -->
+<!-- START_a09d20357336aa979ecd8e3972ac9168 -->
+<h2>Authorize a client to access the user&#039;s account.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/oauth/token',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/token"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/token</code></p>
+<!-- END_a09d20357336aa979ecd8e3972ac9168 -->
+<!-- START_d6a56149547e03307199e39e03e12d1c -->
+<h2>Get all of the authorized tokens for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/oauth/tokens',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/tokens</code></p>
+<!-- END_d6a56149547e03307199e39e03e12d1c -->
+<!-- START_a9a802c25737cca5324125e5f60b72a5 -->
+<h2>Delete the given token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://nfc.gestor/oauth/tokens/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/tokens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/tokens/{token_id}</code></p>
+<!-- END_a9a802c25737cca5324125e5f60b72a5 -->
+<!-- START_abe905e69f5d002aa7d26f433676d623 -->
+<h2>Get a fresh transient token cookie for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/oauth/token/refresh',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/token/refresh"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/token/refresh</code></p>
+<!-- END_abe905e69f5d002aa7d26f433676d623 -->
+<!-- START_babcfe12d87b8708f5985e9d39ba8f2c -->
+<h2>Get all of the clients for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/oauth/clients',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/clients"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/clients</code></p>
+<!-- END_babcfe12d87b8708f5985e9d39ba8f2c -->
+<!-- START_9eabf8d6e4ab449c24c503fcb42fba82 -->
+<h2>Store a new client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/oauth/clients',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/clients"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/clients</code></p>
+<!-- END_9eabf8d6e4ab449c24c503fcb42fba82 -->
+<!-- START_784aec390a455073fc7464335c1defa1 -->
+<h2>Update the given client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;put(
+    'http://nfc.gestor/oauth/clients/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/clients/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>PUT oauth/clients/{client_id}</code></p>
+<!-- END_784aec390a455073fc7464335c1defa1 -->
+<!-- START_1f65a511dd86ba0541d7ba13ca57e364 -->
+<h2>Delete the given client.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://nfc.gestor/oauth/clients/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/clients/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/clients/{client_id}</code></p>
+<!-- END_1f65a511dd86ba0541d7ba13ca57e364 -->
+<!-- START_9e281bd3a1eb1d9eb63190c8effb607c -->
+<h2>Get all of the available scopes for the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/oauth/scopes',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/scopes"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/scopes</code></p>
+<!-- END_9e281bd3a1eb1d9eb63190c8effb607c -->
+<!-- START_9b2a7699ce6214a79e0fd8107f8b1c9e -->
+<h2>Get all of the personal access tokens for the authenticated user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/oauth/personal-access-tokens',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/personal-access-tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET oauth/personal-access-tokens</code></p>
+<!-- END_9b2a7699ce6214a79e0fd8107f8b1c9e -->
+<!-- START_a8dd9c0a5583742e671711f9bb3ee406 -->
+<h2>Create a new personal access token for the user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/oauth/personal-access-tokens',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/personal-access-tokens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST oauth/personal-access-tokens</code></p>
+<!-- END_a8dd9c0a5583742e671711f9bb3ee406 -->
+<!-- START_bae65df80fd9d72a01439241a9ea20d0 -->
+<h2>Delete the given token.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://nfc.gestor/oauth/personal-access-tokens/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/oauth/personal-access-tokens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>DELETE oauth/personal-access-tokens/{token_id}</code></p>
+<!-- END_bae65df80fd9d72a01439241a9ea20d0 -->
+<!-- START_ba35aa39474cb98cfb31829e70eb8b74 -->
+<h2>Handle a login request to the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST login</code></p>
+<!-- END_ba35aa39474cb98cfb31829e70eb8b74 -->
+<!-- START_d7aad7b5ac127700500280d511a3db01 -->
+<h2>Handle a registration request for the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/register',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST register</code></p>
+<!-- END_d7aad7b5ac127700500280d511a3db01 -->
+<!-- START_4cfa6012631d8390b1d1c7905df4e44b -->
+<h2>details api</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/details',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/details"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST details</code></p>
+<!-- END_4cfa6012631d8390b1d1c7905df4e44b -->
+<!-- START_7f147e7f6f70e6c0eb216aa513d8c4a9 -->
+<h2>get/estados</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/get/estados',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/get/estados"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET get/estados</code></p>
+<!-- END_7f147e7f6f70e6c0eb216aa513d8c4a9 -->
+<!-- START_9ad9d1f4d82101168e9a1def625f2bb6 -->
+<h2>get/paises</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/get/paises',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/get/paises"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET get/paises</code></p>
+<!-- END_9ad9d1f4d82101168e9a1def625f2bb6 -->
+<!-- START_c0dbf7eb1a9de357ddbfb55177c777d4 -->
+<h2>opcoes/form-icms</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/form-icms',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/form-icms"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/form-icms</code></p>
+<!-- END_c0dbf7eb1a9de357ddbfb55177c777d4 -->
+<!-- START_cff1c30990bf9b2c7e571b304ccb7f18 -->
+<h2>opcoes/form-ipi</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/form-ipi',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/form-ipi"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/form-ipi</code></p>
+<!-- END_cff1c30990bf9b2c7e571b304ccb7f18 -->
+<!-- START_fadb5b2cc85994233dbbec6434709716 -->
+<h2>opcoes/form-pis</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/form-pis',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/form-pis"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/form-pis</code></p>
+<!-- END_fadb5b2cc85994233dbbec6434709716 -->
+<!-- START_f610b2e3296175c49b6cc7d87d615756 -->
+<h2>opcoes/form-cofins</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/form-cofins',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/form-cofins"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/form-cofins</code></p>
+<!-- END_f610b2e3296175c49b6cc7d87d615756 -->
+<!-- START_f9a0e1d9f4c1e46f5bc2d8f8e4b9b968 -->
+<h2>opcoes/form-importacao</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/form-importacao',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/form-importacao"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/form-importacao</code></p>
+<!-- END_f9a0e1d9f4c1e46f5bc2d8f8e4b9b968 -->
+<!-- START_9fe211e53636246847bd8636f2add5c6 -->
+<h2>opcoes/form-exportacao</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/form-exportacao',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/form-exportacao"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/form-exportacao</code></p>
+<!-- END_9fe211e53636246847bd8636f2add5c6 -->
+<!-- START_aff392a8ef438058594d35df358e64a0 -->
+<h2>opcoes/form-detalhamento</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/form-detalhamento',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/form-detalhamento"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/form-detalhamento</code></p>
+<!-- END_aff392a8ef438058594d35df358e64a0 -->
+<!-- START_9e5fd5fb133ff1a9dbaef5ba4750206c -->
+<h2>opcoes/forms-impostos</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/opcoes/forms-impostos',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/opcoes/forms-impostos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET opcoes/forms-impostos</code></p>
+<!-- END_9e5fd5fb133ff1a9dbaef5ba4750206c -->
+<!-- START_328ffa809bf66b4120fe4f831281d29c -->
+<h2>nota-fiscal/notas</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/nota-fiscal/notas',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/nota-fiscal/notas"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET nota-fiscal/notas</code></p>
+<!-- END_328ffa809bf66b4120fe4f831281d29c -->
+<!-- START_7af508397c98b6cb0ad1b3644dbe6c06 -->
+<h2>nota-fiscal/devolucao</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/nota-fiscal/devolucao',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/nota-fiscal/devolucao"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST nota-fiscal/devolucao</code></p>
+<!-- END_7af508397c98b6cb0ad1b3644dbe6c06 -->
+<!-- START_4925af295e5bca6ee703a5c2686833d0 -->
+<h2>nota-fiscal/nota</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/nota-fiscal/nota',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/nota-fiscal/nota"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET nota-fiscal/nota</code></p>
+<!-- END_4925af295e5bca6ee703a5c2686833d0 -->
+<!-- START_66e08d3cc8222573018fed49e121e96d -->
+<h2>Show the application&#039;s login form.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/login',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/login"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET login</code></p>
+<!-- END_66e08d3cc8222573018fed49e121e96d -->
+<!-- START_e65925f23b9bc6b93d9356895f29f80c -->
+<h2>Log the user out of the application.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/logout',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/logout"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST logout</code></p>
+<!-- END_e65925f23b9bc6b93d9356895f29f80c -->
+<!-- START_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+<h2>Show the application registration form.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/register',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET register</code></p>
+<!-- END_ff38dfb1bd1bb7e1aa24b4e1792a9768 -->
+<!-- START_d72797bae6d0b1f3a341ebb1f8900441 -->
+<h2>Display the form to request a password reset link.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/password/reset',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/password/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET password/reset</code></p>
+<!-- END_d72797bae6d0b1f3a341ebb1f8900441 -->
+<!-- START_feb40f06a93c80d742181b6ffb6b734e -->
+<h2>Send a reset link to the given user.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/password/email',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/password/email"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST password/email</code></p>
+<!-- END_feb40f06a93c80d742181b6ffb6b734e -->
+<!-- START_e1605a6e5ceee9d1aeb7729216635fd7 -->
+<h2>Display the password reset view for the given token.</h2>
+<p>If no token is present, display the link request form.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/password/reset/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/password/reset/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">null</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET password/reset/{token}</code></p>
+<!-- END_e1605a6e5ceee9d1aeb7729216635fd7 -->
+<!-- START_cafb407b7a846b31491f97719bb15aef -->
+<h2>Reset the given user&#039;s password.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/password/reset',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/password/reset"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST password/reset</code></p>
+<!-- END_cafb407b7a846b31491f97719bb15aef -->
+<!-- START_b77aedc454e9471a35dcb175278ec997 -->
+<h2>Display the password confirmation view.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/password/confirm',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/password/confirm"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET password/confirm</code></p>
+<!-- END_b77aedc454e9471a35dcb175278ec997 -->
+<!-- START_54462d3613f2262e741142161c0e6fea -->
+<h2>Confirm the given user&#039;s password.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://nfc.gestor/password/confirm',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/password/confirm"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<h3>HTTP Request</h3>
+<p><code>POST password/confirm</code></p>
+<!-- END_54462d3613f2262e741142161c0e6fea -->
+<!-- START_cb859c8e84c35d7133b6a6c8eac253f8 -->
+<h2>Show the application dashboard.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/home',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/home"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET home</code></p>
+<!-- END_cb859c8e84c35d7133b6a6c8eac253f8 -->
+<!-- START_2ecd2c34871333ab0f1e6108147335fc -->
+<h2>{any}</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://nfc.gestor/1',
+    [
+        'headers' =&gt; [
+            'Content-Type' =&gt; 'application/json',
+            'Accept' =&gt; 'application/json',
+            'Authorization' =&gt; 'Bearer ',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://nfc.gestor/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Authorization": "Bearer ",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET {any}</code></p>
+<!-- END_2ecd2c34871333ab0f1e6108147335fc -->
+      </div>
+      <div class="dark-box">
+                        <div class="lang-selector">
+                                    <a href="#" data-language-name="php">php</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                              </div>
+                </div>
+    </div>
+  </body>
+</html>

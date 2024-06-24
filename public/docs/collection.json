@@ -1,0 +1,2049 @@
+{
+    "variables": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "f88aff8f-c05e-490a-9c0e-42a88e795830",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Cliente",
+            "description": "",
+            "item": [
+                {
+                    "name": "Salvar\/Editar",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "cliente\/salvar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 1,\n    \"tipo_pessoa\": \"1\",\n    \"nome_completo\": \"1\",\n    \"cpf_cnpj\": \"1\",\n    \"consumidor_final\": \"1\",\n    \"cep\": \"1\",\n    \"endereco\": \"1\",\n    \"numero\": \"1\",\n    \"complemento\": \"1\",\n    \"bairro\": \"1\",\n    \"cidade\": \"1\",\n    \"uf\": \"1\",\n    \"email\": \"1\",\n    \"telefone\": \"1\"\n}"
+                        },
+                        "description": "Salva um novo cliente ou sobrescreve os dados de um cliente j\u00e1 existente",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "cliente\/:cliente",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "cliente",
+                                    "key": "cliente",
+                                    "value": "1",
+                                    "description": "Id do cliente"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Retorna um objeto contendo dados de um cliente cadastrado",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Clientes",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "clientes",
+                            "query": [
+                                {
+                                    "key": "paginate",
+                                    "value": "0",
+                                    "description": "Indica se o retorno vem sem p\u00e1gina\u00e7\u00e3o, para isso o par\u00e2metro deve receber o valor 0 ou false.",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Retorna um objeto contendo dados dos clientes cadastrados",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Nota Fiscal",
+            "description": "",
+            "item": [
+                {
+                    "name": "Enviar\n\nEnvia dados para api de emiss\u00e3o de nota fiscal\n\nRequired dos campos podem variar conforme o valor da finalidade\n\nNos campos obrigat\u00f3rios pela finalidade possuem em sua descri\u00e7\u00e3o '*' seguido pelo valor da finalidade onde \u00e9 obrigat\u00f3rio\n\nValores das finalidades:\n\n1 : NF-e normal\n\n2 : NF-e complementar\n2.1 : Pre\u00e7o e\/ou quantidade\n2.2 : Imposto Complementar\n\n3 : NF-e de ajuste\n\n4 : Devolu\u00e7\u00e3o\/Retorno\n\n5 : Carta de Corre\u00e7\u00e3o\n\n6 : Inutilizar Numera\u00e7\u00e3o\n\nMais infos: https:\/\/webmaniabr.com\/docs\/rest-api-nfe\/",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "nota-fiscal\/enviar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"operacao\": {\n        \"ambiente\": \"ratione\",\n        \"operacao\": \"consequatur\",\n        \"natureza_operacao\": \"magni\",\n        \"modelo\": \"quos\",\n        \"finalidade\": \"eligendi\",\n        \"nfe_complementar\": \"omnis\",\n        \"nfe_referenciada\": \"aliquid\",\n        \"codigo_cfop\": \"assumenda\",\n        \"valor_icms\": \"eius\",\n        \"classe_imposto\": \"ea\",\n        \"chave\": \"reiciendis\",\n        \"correcao\": \"non\"\n    },\n    \"cliente\": {\n        \"tipo_pessoa\": \"eos\",\n        \"nome_completo\": \"dolor\",\n        \"cpf_cnpj\": \"nulla\",\n        \"razao_social\": \"minima\",\n        \"ie\": \"reprehenderit\",\n        \"suframa\": \"soluta\",\n        \"substituto_tributario\": \"aut\",\n        \"consumidor_final\": \"aliquam\",\n        \"contribuinte\": \"velit\",\n        \"endereco\": \"vero\",\n        \"complemento\": \"nesciunt\",\n        \"numero\": \"provident\",\n        \"bairro\": \"at\",\n        \"cidade\": \"quod\",\n        \"uf\": \"error\",\n        \"cep\": \"qui\",\n        \"telefone\": \"nisi\",\n        \"email\": \"voluptas\"\n    },\n    \"produtos\": [\n        {\n            \"item\": \"tenetur\",\n            \"nome\": \"velit\",\n            \"codigo\": \"culpa\",\n            \"ncm\": \"earum\",\n            \"cest\": \"architecto\",\n            \"quantidade\": \"fuga\",\n            \"unidade\": \"cumque\",\n            \"peso\": \"expedita\",\n            \"origem\": \"vel\",\n            \"desconto\": \"soluta\",\n            \"subtotal\": \"dolores\",\n            \"total\": \"consequatur\",\n            \"tributos_federais\": \"porro\",\n            \"tributos_estaduais\": \"veritatis\",\n            \"codigo_cfop\": \"magnam\",\n            \"impostos\": {\n                \"icms\": {\n                    \"situacao_tributaria\": \"dolorum\",\n                    \"tipo_tributacao\": \"beatae\",\n                    \"aliquota_credito\": \"sed\",\n                    \"aliquota_mva\": \"est\",\n                    \"aliquota_importacao\": \"commodi\",\n                    \"aliquota_reducao_st\": \"sapiente\",\n                    \"bc_st_retido\": \"hic\",\n                    \"aliquota_st_retido\": \"qui\",\n                    \"valor_st_retido\": \"consectetur\",\n                    \"valor_fcp_retido\": \"repudiandae\",\n                    \"aliquota_fcp_retido\": \"dolorem\",\n                    \"icms_efetivo\": \"optio\",\n                    \"industria\": \"quos\"\n                },\n                \"ipi\": {\n                    \"situacao_tributaria\": \"cumque\",\n                    \"codigo_enquadramento\": \"occaecati\",\n                    \"aliquota\": \"nobis\"\n                },\n                \"pis\": {\n                    \"situacao_tributaria\": \"commodi\",\n                    \"aliquota\": \"aut\"\n                },\n                \"cofins\": {\n                    \"situacao_tributaria\": \"et\",\n                    \"aliquota\": \"dolor\"\n                }\n            }\n        }\n    ],\n    \"quantidade\": [],\n    \"impostos\": {\n        \"bc_icms\": \"ad\",\n        \"valor_icms\": \"eos\",\n        \"bc_icms_st\": \"animi\",\n        \"valor_icms_st\": \"doloremque\",\n        \"aliquota_mva\": \"molestias\",\n        \"bc_ipi\": \"dolores\",\n        \"valor_ipi\": \"aut\"\n    },\n    \"transporte\": {\n        \"peso_bruto\": \"ipsa\",\n        \"peso_liquido\": \"dolores\",\n        \"volume\": \"dolorum\",\n        \"especie\": \"necessitatibus\",\n        \"marca\": \"laborum\",\n        \"numeracao\": \"maxime\",\n        \"lacres\": \"commodi\",\n        \"uf\": \"non\",\n        \"razao_social\": \"sed\",\n        \"cnpj\": \"numquam\",\n        \"ie\": \"perferendis\",\n        \"cep\": \"modi\",\n        \"endereco\": \"optio\",\n        \"cidade\": \"ratione\",\n        \"placa\": \"officia\",\n        \"uf_veiculo\": \"assumenda\",\n        \"rntc\": \"tempore\",\n        \"seguro\": \"ipsum\",\n        \"reboque_placa\": \"quidem\",\n        \"reboque_uf_veiculo\": \"quia\",\n        \"reboque_rntc\": \"sed\",\n        \"vagao\": \"ut\",\n        \"balsa\": \"id\"\n    },\n    \"pedido\": [\n        {\n            \"pagamento\": [\n                {\n                    \"forma_pagamento\": \"officiis\",\n                    \"pagamento\": \"autem\",\n                    \"valor_pagamento\": \"reprehenderit\",\n                    \"bandeira\": \"perferendis\",\n                    \"cnpj_credenciadora\": \"eveniet\",\n                    \"autorizacao\": \"voluptatibus\"\n                }\n            ],\n            \"fatura\": {\n                \"numero\": \"dolor\",\n                \"valor\": \"eaque\",\n                \"valor_liquido\": \"id\",\n                \"desconto\": \"quam\"\n            },\n            \"parcelas\": [\n                {\n                    \"vencimento\": \"et\",\n                    \"valor\": \"architecto\"\n                }\n            ]\n        }\n    ],\n    \"frete\": \"suscipit\",\n    \"desconto\": \"ut\",\n    \"despesas_acessorias\": \"aut\",\n    \"total\": \"fugit\",\n    \"modalidade_frete\": \"aut\",\n    \"ID\": \"ut\",\n    \"data_entrada_saida\": \"aut\",\n    \"presenca\": \"iste\",\n    \"informacoes_complementares\": \"eaque\",\n    \"informacoes_fisco\": \"necessitatibus\",\n    \"volume\": \"laborum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Cancelar\n\nEnvia dados para api de cancelamento de nota fiscal",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "nota-fiscal\/cancelar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"chave\": \"quam\",\n    \"motivo\": \"provident\",\n    \"operacao\": {\n        \"ambiente\": \"aspernatur\",\n        \"modelo\": \"tempora\",\n        \"finalidade\": \"odio\"\n    }\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Carta de corre\u00e7\u00e3o (CC-e)\n\nA Carta de Corre\u00e7\u00e3o Eletr\u00f4nica (CC-e) \u00e9 um evento legal e tem por objetivo corrigir algumas informa\u00e7\u00f5es da NF-e que j\u00e1 foi emitida.\n\nO que N\u00c3O \u00e9 permitido corrigir com a carta de corre\u00e7\u00e3o?\n\n- Valores como base de c\u00e1lculo, al\u00edquota, diferen\u00e7a de pre\u00e7o e quantidade.\n\n- Dados cadastrais que implique mudan\u00e7a do remetente ou do destinat\u00e1rio.\n\n- A data de emiss\u00e3o ou de sa\u00edda.\n\n- S\u00e9rie e n\u00famero da nota fiscal.\n\nA sua altera\u00e7\u00e3o n\u00e3o se enquadra na carta de corre\u00e7\u00e3o?\n\nEmita uma nota fiscal de devolu\u00e7\u00e3o para anular os efeitos fiscais da NF-e emitida anteriormente, logo ap\u00f3s emita uma nova nota fiscal normalmente.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "nota-fiscal\/carta-correcao",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"carta_correcao\": {\n        \"chave\": \"sit\",\n        \"correcao\": \"et\"\n    },\n    \"operacao\": {\n        \"ambiente\": \"consequatur\",\n        \"modelo\": \"pariatur\",\n        \"finalidade\": \"ducimus\"\n    }\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Inutilizar numera\u00e7\u00e3o\n\nInutilizar uma sequ\u00eancia de numera\u00e7\u00e3o de Nota Fiscal",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "nota-fiscal\/inutilizar-numeracao",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"sequencia\": \"repellendus\",\n    \"motivo\": \"eaque\",\n    \"ambiente\": \"et\",\n    \"serie\": \"debitis\",\n    \"modelo\": \"saepe\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Produto",
+            "description": "",
+            "item": [
+                {
+                    "name": "Salvar\/Editar",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "produto\/salvar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"id\": 1,\n    \"nome\": \"sint\",\n    \"codigo\": \"ut\",\n    \"ean\": \"voluptates\",\n    \"ncm\": \"nostrum\",\n    \"cest\": \"rerum\",\n    \"quantidade\": \"architecto\",\n    \"unidade\": \"culpa\",\n    \"origem\": \"ex\",\n    \"subtotal\": \"veniam\",\n    \"total\": \"exercitationem\",\n    \"impostos\": {\n        \"icms\": {\n            \"codigo_cfop\": \"tempore\",\n            \"situacao_tributaria\": \"maiores\",\n            \"tipo_tributacao\": \"doloribus\",\n            \"aliquota_credito\": \"perspiciatis\",\n            \"aliquota_mva\": \"neque\",\n            \"aliquota_importacao\": \"quia\",\n            \"aliquota_reducao_st\": \"earum\",\n            \"bc_st_retido\": \"aut\",\n            \"aliquota_st_retido\": \"et\",\n            \"valor_st_retido\": \"ipsam\",\n            \"valor_fcp_retido\": \"alias\",\n            \"aliquota_fcp_retido\": \"similique\",\n            \"icms_efetivo\": \"ea\",\n            \"industria\": \"vitae\"\n        },\n        \"ipi\": {\n            \"situacao_tributaria\": \"dolorum\",\n            \"codigo_enquadramento\": \"voluptatem\",\n            \"aliquota\": \"adipisci\"\n        },\n        \"pis\": {\n            \"situacao_tributaria\": \"sequi\",\n            \"aliquota\": \"perspiciatis\"\n        },\n        \"cofins\": {\n            \"situacao_tributaria\": \"distinctio\",\n            \"aliquota\": \"sed\"\n        }\n    }\n}"
+                        },
+                        "description": "Salva um novo produto ou sobrescreve os dados de um produto j\u00e1 existente",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Produto",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "produto\/:produto",
+                            "query": [],
+                            "variable": [
+                                {
+                                    "id": "produto",
+                                    "key": "produto",
+                                    "value": "1",
+                                    "description": "Id do produto"
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Retorna um objeto contendo dados de um produto cadastrado",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Produtos",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "produtos",
+                            "query": [
+                                {
+                                    "key": "paginate",
+                                    "value": "0",
+                                    "description": "Indica se o retorno vem sem p\u00e1gina\u00e7\u00e3o, para isso o par\u00e2metro deve receber o valor 0 ou false.",
+                                    "disabled": true
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "Retorna um objeto contendo dados dos produtos cadastrados",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "general",
+            "description": "",
+            "item": [
+                {
+                    "name": "_debugbar\/open",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "_debugbar\/open",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Return Clockwork output",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "_debugbar\/clockwork\/:id",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "_debugbar\/telescope\/{id}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "_debugbar\/telescope\/:id",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Return the stylesheets for the Debugbar",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "_debugbar\/assets\/stylesheets",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Return the javascript for the Debugbar",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "_debugbar\/assets\/javascript",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Forget a cache key",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "_debugbar\/cache\/:key\/:tags",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Display Swagger API page.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "api\/documentation",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Dump api-docs content endpoint. Supports dumping a json, or yaml file.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "docs\/:jsonFile",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "docs\/asset\/{asset}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "docs\/asset\/:asset",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Display Oauth2 callback pages.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "api\/oauth2-callback",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Authorize a client to access the user's account.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/authorize",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Approve the authorization request.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/authorize",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Deny the authorization request.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/authorize",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Authorize a client to access the user's account.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/token",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get all of the authorized tokens for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/tokens",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete the given token.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/tokens\/:token_id",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get a fresh transient token cookie for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/token\/refresh",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get all of the clients for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/clients",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Store a new client.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/clients",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update the given client.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/clients\/:client_id",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete the given client.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/clients\/:client_id",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get all of the available scopes for the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/scopes",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Get all of the personal access tokens for the authenticated user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/personal-access-tokens",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Create a new personal access token for the user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/personal-access-tokens",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Delete the given token.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "oauth\/personal-access-tokens\/:token_id",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Handle a login request to the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Handle a registration request for the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "register",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "details api",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "details",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "get\/estados",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "get\/estados",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "get\/paises",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "get\/paises",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/form-icms",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/form-icms",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/form-ipi",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/form-ipi",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/form-pis",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/form-pis",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/form-cofins",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/form-cofins",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/form-importacao",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/form-importacao",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/form-exportacao",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/form-exportacao",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/form-detalhamento",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/form-detalhamento",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "opcoes\/forms-impostos",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "opcoes\/forms-impostos",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "nota-fiscal\/notas",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "nota-fiscal\/notas",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "nota-fiscal\/devolucao",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "nota-fiscal\/devolucao",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "nota-fiscal\/nota",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "nota-fiscal\/nota",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show the application's login form.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "login",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Log the user out of the application.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "logout",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show the application registration form.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "register",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Display the form to request a password reset link.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "password\/reset",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Send a reset link to the given user.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "password\/email",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Display the password reset view for the given token.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "password\/reset\/:token",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "If no token is present, display the link request form.",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Reset the given user's password.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "password\/reset",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Display the password confirmation view.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "password\/confirm",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Confirm the given user's password.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "password\/confirm",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Show the application dashboard.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "home",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "{any}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "nfc.gestor",
+                            "path": "{any}",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer "
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,796 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Gestor API",
+        "version": "1.0.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/clientes": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Lista de de clientes cadastrados",
+                "parameters": [
+                    {
+                        "name": "paginate",
+                        "in": "query",
+                        "description": "Indica se o retorno vem sem p\u00e1gina\u00e7\u00e3o, para isso o par\u00e2metro deve receber o valor 0 ou false",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/cliente/{cliente}": {
+            "get": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Dados do cliente",
+                "parameters": [
+                    {
+                        "name": "cliente",
+                        "in": "path",
+                        "description": "Id do cliente",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/cliente/salvar": {
+            "post": {
+                "tags": [
+                    "Clientes"
+                ],
+                "summary": "Salvar dados do cliente",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Dados do cliente",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "tipo_pessoa",
+                                "nome_completo",
+                                "cpf_cnpj",
+                                "cep",
+                                "endereco",
+                                "numero",
+                                "bairro",
+                                "cidade",
+                                "uf",
+                                "email",
+                                "telefone"
+                            ],
+                            "properties": {
+                                "tipo_pessoa": {
+                                    "type": "string"
+                                },
+                                "nome_completo": {
+                                    "type": "string"
+                                },
+                                "cpf_cnpj": {
+                                    "type": "string"
+                                },
+                                "consumidor_final": {
+                                    "type": "string"
+                                },
+                                "cep": {
+                                    "type": "string"
+                                },
+                                "endereco": {
+                                    "type": "string"
+                                },
+                                "numero": {
+                                    "type": "string"
+                                },
+                                "complemento": {
+                                    "type": "string"
+                                },
+                                "bairro": {
+                                    "type": "string"
+                                },
+                                "cidade": {
+                                    "type": "string"
+                                },
+                                "uf": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "telefone": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/nota-fiscal/enviar": {
+            "post": {
+                "tags": [
+                    "Nota-fiscal"
+                ],
+                "summary": "Enviar nota fiscal para api",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Dados para envio da nota fiscal",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "nome",
+                                "codigo"
+                            ],
+                            "properties": {
+                                "operacao": {
+                                    "type": "string"
+                                },
+                                "natureza_operacao": {
+                                    "type": "string"
+                                },
+                                "modelo": {
+                                    "type": "string"
+                                },
+                                "finalidade": {
+                                    "type": "string"
+                                },
+                                "ambiente": {
+                                    "type": "string"
+                                },
+                                "cliente": {
+                                    "properties": {
+                                        "cpf": {
+                                            "type": "string"
+                                        },
+                                        "nome_completo": {
+                                            "type": "string"
+                                        },
+                                        "cnpj": {
+                                            "type": "string"
+                                        },
+                                        "razao_social": {
+                                            "type": "string"
+                                        },
+                                        "ie": {
+                                            "type": "string"
+                                        },
+                                        "suframa": {
+                                            "type": "string"
+                                        },
+                                        "substituto_tributario": {
+                                            "type": "string"
+                                        },
+                                        "consumidor_final": {
+                                            "type": "string"
+                                        },
+                                        "contribuinte": {
+                                            "type": "string"
+                                        },
+                                        "endereco": {
+                                            "type": "string"
+                                        },
+                                        "complemento": {
+                                            "type": "string"
+                                        },
+                                        "numero": {
+                                            "type": "string"
+                                        },
+                                        "bairro": {
+                                            "type": "string"
+                                        },
+                                        "cidade": {
+                                            "type": "string"
+                                        },
+                                        "uf": {
+                                            "type": "string"
+                                        },
+                                        "cep": {
+                                            "type": "string"
+                                        },
+                                        "telefone": {
+                                            "type": "string"
+                                        },
+                                        "email": {
+                                            "type": "string"
+                                        },
+                                        "produtos": {
+                                            "type": "string"
+                                        },
+                                        "pedido": {
+                                            "type": "string"
+                                        },
+                                        "transporte": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "produtos": {
+                                    "description": "Um array contendo multiplos objetos de cada produto",
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "item": {
+                                                "type": "string"
+                                            },
+                                            "nome": {
+                                                "type": "string"
+                                            },
+                                            "codigo": {
+                                                "type": "string"
+                                            },
+                                            "ncm": {
+                                                "type": "string"
+                                            },
+                                            "cest": {
+                                                "type": "string"
+                                            },
+                                            "quantidade": {
+                                                "type": "string"
+                                            },
+                                            "unidade": {
+                                                "type": "string"
+                                            },
+                                            "peso": {
+                                                "type": "string"
+                                            },
+                                            "origem": {
+                                                "type": "string"
+                                            },
+                                            "desconto": {
+                                                "type": "string"
+                                            },
+                                            "subtotal": {
+                                                "type": "string"
+                                            },
+                                            "total": {
+                                                "type": "string"
+                                            },
+                                            "tributos_federais": {
+                                                "type": "string"
+                                            },
+                                            "tributos_estaduais": {
+                                                "type": "string"
+                                            },
+                                            "impostos": {
+                                                "properties": {
+                                                    "icms": {
+                                                        "properties": {
+                                                            "codigo_cfop": {
+                                                                "type": "string"
+                                                            },
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_reducao": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_credito": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_mva": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_diferimento": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_importacao": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_reducao_st": {
+                                                                "type": "string"
+                                                            },
+                                                            "motivo_desoneracao": {
+                                                                "type": "string"
+                                                            },
+                                                            "bc_st_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_st_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "valor_st_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "valor_fcp_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota_fcp_retido": {
+                                                                "type": "string"
+                                                            },
+                                                            "icms_efetivo": {
+                                                                "type": "string"
+                                                            },
+                                                            "industria": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ipi": {
+                                                        "properties": {
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "codigo_enquadramento": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota": {
+                                                                "type": "string"
+                                                            },
+                                                            "codigo_selo": {
+                                                                "type": "string"
+                                                            },
+                                                            "qtd_selo": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "pis": {
+                                                        "properties": {
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "cofins": {
+                                                        "properties": {
+                                                            "situacao_tributaria": {
+                                                                "type": "string"
+                                                            },
+                                                            "aliquota": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "pedido": {
+                                    "properties": {
+                                        "presenca": {
+                                            "type": "string"
+                                        },
+                                        "modalidade_frete": {
+                                            "type": "string"
+                                        },
+                                        "frete": {
+                                            "type": "string"
+                                        },
+                                        "desconto": {
+                                            "type": "string"
+                                        },
+                                        "total": {
+                                            "type": "string"
+                                        },
+                                        "despesas_acessorias": {
+                                            "type": "string"
+                                        },
+                                        "despesas_aduaneiras": {
+                                            "type": "string"
+                                        },
+                                        "informacoes_fisco": {
+                                            "type": "string"
+                                        },
+                                        "informacoes_complementares": {
+                                            "type": "string"
+                                        },
+                                        "observacoes_contribuinte": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "transporte": {
+                                    "properties": {
+                                        "volume": {
+                                            "type": "string"
+                                        },
+                                        "especie": {
+                                            "type": "string"
+                                        },
+                                        "peso_bruto": {
+                                            "type": "string"
+                                        },
+                                        "peso_liquido": {
+                                            "type": "string"
+                                        },
+                                        "marca": {
+                                            "type": "string"
+                                        },
+                                        "numeracao": {
+                                            "type": "string"
+                                        },
+                                        "lacres": {
+                                            "type": "string"
+                                        },
+                                        "cnpj": {
+                                            "type": "string"
+                                        },
+                                        "razao_social": {
+                                            "type": "string"
+                                        },
+                                        "ie": {
+                                            "type": "string"
+                                        },
+                                        "cpf": {
+                                            "type": "string"
+                                        },
+                                        "nome_completo": {
+                                            "type": "string"
+                                        },
+                                        "endereco": {
+                                            "type": "string"
+                                        },
+                                        "uf": {
+                                            "type": "string"
+                                        },
+                                        "cidade": {
+                                            "type": "string"
+                                        },
+                                        "cep": {
+                                            "type": "string"
+                                        },
+                                        "placa": {
+                                            "type": "string"
+                                        },
+                                        "uf_veiculo": {
+                                            "type": "string"
+                                        },
+                                        "rntc": {
+                                            "type": "string"
+                                        },
+                                        "seguro": {
+                                            "type": "string"
+                                        },
+                                        "reboque_placa": {
+                                            "type": "string"
+                                        },
+                                        "reboque_uf_veiculo": {
+                                            "type": "string"
+                                        },
+                                        "reboque_rntc": {
+                                            "type": "string"
+                                        },
+                                        "vagao": {
+                                            "type": "string"
+                                        },
+                                        "balsa": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/produtos": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Lista de de produtos cadastrados",
+                "parameters": [
+                    {
+                        "name": "paginate",
+                        "in": "query",
+                        "description": "Indica se o retorno vem sem p\u00e1gina\u00e7\u00e3o, para isso o par\u00e2metro deve receber o valor 0 ou false",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/produto/{produto}": {
+            "get": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Dados do produto",
+                "parameters": [
+                    {
+                        "name": "produto",
+                        "in": "path",
+                        "description": "Id do produto",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/produto/salvar": {
+            "post": {
+                "tags": [
+                    "Produtos"
+                ],
+                "summary": "Salvar dados do produto",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Dados do produto",
+                        "required": true,
+                        "schema": {
+                            "required": [
+                                "nome",
+                                "codigo"
+                            ],
+                            "properties": {
+                                "nome": {
+                                    "type": "string"
+                                },
+                                "codigo": {
+                                    "type": "string"
+                                },
+                                "ean": {
+                                    "type": "string"
+                                },
+                                "ncm": {
+                                    "type": "string"
+                                },
+                                "cest": {
+                                    "type": "string"
+                                },
+                                "quantidade": {
+                                    "type": "string"
+                                },
+                                "unidade": {
+                                    "type": "string"
+                                },
+                                "origem": {
+                                    "type": "string"
+                                },
+                                "subtotal": {
+                                    "type": "string"
+                                },
+                                "total": {
+                                    "type": "string"
+                                },
+                                "impostos": {
+                                    "required": [
+                                        "icms",
+                                        "ipi",
+                                        "pis",
+                                        "cofins"
+                                    ],
+                                    "properties": {
+                                        "icms": {
+                                            "required": [
+                                                "codigo_cfop",
+                                                "situacao_tributaria",
+                                                "tipo_tributacao"
+                                            ],
+                                            "properties": {
+                                                "codigo_cfop": {
+                                                    "description": "C\u00f3digo Fiscal de Opera\u00e7\u00f5es e Presta\u00e7\u00f5es (CFOP)",
+                                                    "type": "string"
+                                                },
+                                                "situacao_tributaria": {
+                                                    "description": "C\u00f3digo da situa\u00e7\u00e3o tribut\u00e1ria",
+                                                    "type": "string"
+                                                },
+                                                "tipo_tributacao": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_credito": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_mva": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_importacao": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_reducao_st": {
+                                                    "type": "string"
+                                                },
+                                                "bc_st_retido": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_st_retido": {
+                                                    "type": "string"
+                                                },
+                                                "valor_st_retido": {
+                                                    "type": "string"
+                                                },
+                                                "valor_fcp_retido": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota_fcp_retido": {
+                                                    "type": "string"
+                                                },
+                                                "icms_efetivo": {
+                                                    "type": "string"
+                                                },
+                                                "industria": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "ipi": {
+                                            "required": [
+                                                "situacao_tributaria",
+                                                "codigo_enquadramento",
+                                                "aliquota"
+                                            ],
+                                            "properties": {
+                                                "situacao_tributaria": {
+                                                    "type": "string"
+                                                },
+                                                "codigo_enquadramento": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "pis": {
+                                            "required": [
+                                                "situacao_tributaria",
+                                                "aliquota"
+                                            ],
+                                            "properties": {
+                                                "situacao_tributaria": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "cofins": {
+                                            "required": [
+                                                "situacao_tributaria",
+                                                "aliquota"
+                                            ],
+                                            "properties": {
+                                                "situacao_tributaria": {
+                                                    "type": "string"
+                                                },
+                                                "aliquota": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {}
+}
